@@ -18,5 +18,21 @@ namespace GaussElimination
                 matrix[secondRowID, i] = temp[i];
             }
         }
+
+        public void AddARowToAnotherRow(double[,] matrix, int toRowID, int fromRowID, double constant)
+        {
+            for (int i = 0; i < matrix.GetLength(1); i++)
+            {
+                matrix[toRowID, i] += matrix[fromRowID, i] * constant;
+            }
+        }
+
+        public void MultiplicateARowWithConstant(double[,] matrix, int rowID, double constant)
+        {
+            for (int i = 0; i < matrix.GetLength(1); i++)
+            {
+                matrix[rowID, i] = matrix[rowID, i] * constant;
+            }
+        }
     }
 }

@@ -20,6 +20,9 @@ namespace GaussElimination
             DisplayTools.ToConsole(matrix);
 
             Logic l = new Logic();
+            l.AddARowToAnotherRow(matrix, 2, 0, 1);
+
+            DisplayTools.ToConsole(matrix);
 
             Console.ReadKey();
         }
