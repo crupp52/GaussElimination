@@ -17,12 +17,8 @@ namespace GaussElimination
                 {3, -6, -1, 25}
             };
 
-            DisplayTools.ToConsole(matrix);
-
-            Logic l = new Logic();
-            l.AddARowToAnotherRow(matrix, 2, 0, 1);
-
-            DisplayTools.ToConsole(matrix);
+            Logic l = new Logic(matrix);
+            DisplayTools.ToConsole(l.Matrix);
 
             Console.ReadKey();
         }
