@@ -8,7 +8,7 @@ namespace GaussElimination
 {
     public class Logic
     {
-        void ChangeRows(ref double[,] matrix, int firstRowID, int secondRowID)
+        public void ChangeRows(double[,] matrix, int firstRowID, int secondRowID)
         {
             double[] temp = new double[matrix.GetLength(1)];
             for (int i = 0; i < matrix.GetLength(1); i++)

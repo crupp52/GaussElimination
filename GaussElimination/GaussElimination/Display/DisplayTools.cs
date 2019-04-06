@@ -6,15 +6,24 @@ using System.Threading.Tasks;
 
 namespace GaussElimination
 {
-    public class DisplayTools
+    public static class DisplayTools
     {
-        public void ToConsole(double[,] matrix)
+        public static void ToConsole(double[,] matrix)
         {
-            for (int i = 0; i < matrix.GetLength(0); i++)
+            int x = matrix.GetLength(1);
+            int y = matrix.GetLength(0);
+            for (int i = 0; i < y; i++)
             {
-                for (int j = 0; j < matrix.GetLength(1); j++)
+                for (int j = 0; j < x; j++)
                 {
-
+                    if (j < x - 1)
+                    {
+                        Console.Write("{0}\t", matrix[i, j]);
+                    }
+                    else
+                    {
+                        Console.Write("|\t{0}\n", matrix[i, j]);
+                    }
                 }
             }
         }
