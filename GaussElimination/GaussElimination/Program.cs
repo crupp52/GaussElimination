@@ -10,15 +10,29 @@ namespace GaussElimination
     {
         static void Main(string[] args)
         {
+            //double[,] matrix =
+            //{
+            //    {1, -2, 5, 9},
+            //    {1, -1, 3, 2},
+            //    {3, -6, -1, 25}
+            //};
+
+            //double[,] matrix =
+            //{
+            //    {1, 2, 1, 8},
+            //    {2, 1, -1, 1},
+            //    {2, -1, 1, 3}
+            //};
+
             double[,] matrix =
             {
-                {1, -2, 5, 9},
-                {1, -1, 3, 2},
-                {3, -6, -1, 25}
+                {9, 3, 4, 7},
+                {4, 3, 4, 8},
+                {1, 1, 1, 3}
             };
 
             Logic l = new Logic(matrix);
-            DisplayTools.ToConsole(l.Matrix);
+            l.Process();
 
             Console.ReadKey();
         }
