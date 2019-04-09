@@ -38,7 +38,7 @@ namespace GaussElimination
         {
             for (int i = 0; i < Matrix.GetLength(1); i++)
             {
-                Matrix[rowID, i] = Matrix[rowID, i] * constant;
+                Matrix[rowID, i] *= constant;
             }
         }
 
@@ -99,43 +99,48 @@ namespace GaussElimination
 
         public void Process()
         {
-            Console.WriteLine("Kiindulú állapot:");
+            Console.WriteLine("Kiinduló állapot:");
             DisplayTools.ToConsole(Matrix);
-            int x = Matrix.GetLength(1) - 1;
-            int y = Matrix.GetLength(0);
-            for (int i = 0; i < x; i++)
+            int n = Matrix.GetLength(1);
+            int m = Matrix.GetLength(0);
+            for (int i = 0; i < m; i++)
             {
-                if (Matrix[i, i] == 0 && !OnlyZerosFromRow(i, i))
+                if (!OnlyZerosFromRow(i, i))
                 {
-                    ChangeRows(i, SerachZeroInColumn(i));
+                    if (Matrix[i, i] == 0)
+                    {
+                        ChangeRows(i, SerachNonZeroInColumn(i));
+                    }
+                    if (!OnlyZerosFromRow(i + 1, i))
+                    {
+                        for (int j = i; j < m; j++)
+                        {
+                            double t = Matrix[j, i];
+                            for (int k = i; k < n; k++)
+                            {
+                                Matrix[j, k] = Matrix[j, k] / t;
+                            }
+                        }
+                        for (int j = i + 1; j < m; j++)
+                        {
+                            for (int k = i; k < n; k++)
+                            {
+                                Matrix[j, k] = Matrix[j, k] - Matrix[i, k];
+                            }
+                        }
+                    }
                 }
-                for (int j = i + 1; j < y; j++)
-                {
-                    double constant = -1 * Matrix[i, i] * (Matrix[j, i] / Matrix[i, i]);
-                    AddARowToAnotherRow(j, i, constant);
-                }
-                MultiplicateARowWithConstant(i, 1 / Matrix[i, i]);
-                DisplayTools.ToConsole(Matrix);
             }
-
-            CalculateResult();
+            Console.WriteLine("Átalakítás utáni állapot:");
+            DisplayTools.ToConsole(Matrix);
         }
 
-        double[] CalculateResult()
+        double[,] CalculateResult()
         {
-            double[] res = new double[Matrix.GetLength(0)];
+            double[,] res = new double[Matrix.GetLength(0), Matrix.GetLength(1)];
+            
 
-            int x = Matrix.GetLength(1) - 1;
-            int y = Matrix.GetLength(0);
-
-            for (int i = y - 1; i > -1; i--)
-            {
-                double[] temp = new double[x];
-                for (int j = x - 1; j > -1; j--)
-                {
-                    temp[j] = Matrix[i, j];
-                }
-            }
+            
 
             return res;
         }
