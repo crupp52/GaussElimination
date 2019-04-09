@@ -111,21 +111,19 @@ namespace GaussElimination
                     {
                         ChangeRows(i, SerachNonZeroInColumn(i));
                     }
-                    if (!OnlyZerosFromRow(i + 1, i))
+                    
+                    for (int j = i; j < m; j++)
                     {
-                        for (int j = i; j < m; j++)
+                        if (Matrix[j,i] != 0)
                         {
                             double t = Matrix[j, i];
                             for (int k = i; k < n; k++)
                             {
                                 Matrix[j, k] = Matrix[j, k] / t;
-                            }
-                        }
-                        for (int j = i + 1; j < m; j++)
-                        {
-                            for (int k = i; k < n; k++)
-                            {
-                                Matrix[j, k] = Matrix[j, k] - Matrix[i, k];
+                                if (j >= i + 1)
+                                {
+                                    Matrix[j, k] = Matrix[j, k] - Matrix[i, k];
+                                }
                             }
                         }
                     }

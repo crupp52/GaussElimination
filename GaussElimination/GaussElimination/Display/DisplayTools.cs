@@ -18,11 +18,11 @@ namespace GaussElimination
                 {
                     if (j < x - 1)
                     {
-                        Console.Write("{0:N4}\t", matrix[i, j]);
+                        Console.Write("{0:N3}\t", matrix[i, j]);
                     }
                     else
                     {
-                        Console.Write("|\t{0:N4}\n", matrix[i, j]);
+                        Console.Write("|\t{0:N3}\n", matrix[i, j]);
                     }
                 }
             }
@@ -41,22 +41,30 @@ namespace GaussElimination
                 {
                     if (j == 0)
                     {
-                        Console.Write($"{Math.Abs(matrix[i, j]):N4}{abc[j].ToString().ToUpper()}");
+                        Console.Write($"{Math.Abs(matrix[i, j]):N3}{abc[j].ToString().ToUpper()}");
                     }
                     else if (j < x - 1)
                     {
                         if (matrix[i, j] >= 0)
                         {
-                            Console.Write($" + {Math.Abs(matrix[i, j]):N4}{abc[j].ToString().ToUpper()}");
+                            Console.Write($" + {Math.Abs(matrix[i, j]):N3}{abc[j].ToString().ToUpper()}");
                         }
                         else
                         {
-                            Console.Write($" - {Math.Abs(matrix[i, j]):N4}{abc[j].ToString().ToUpper()}");
+                            Console.Write($" - {Math.Abs(matrix[i, j]):N3}{abc[j].ToString().ToUpper()}");
                         }
                     }
                     else
                     {
-                        Console.Write($" = {Math.Abs(matrix[i, j]):N4}");
+                        if (matrix[i, j] > 0)
+                        {
+                            Console.Write($" = {Math.Abs(matrix[i, j]):N3}");
+                        }
+                        else
+                        {
+                            Console.Write($" = -{Math.Abs(matrix[i, j]):N3}");
+                        }
+                        
                     }
                     
                 }
