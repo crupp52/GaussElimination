@@ -8,6 +8,7 @@ namespace GaussElimination
 {
     public static class DisplayTools
     {
+        public static string abc = "abcdefghijklmnopqrstuvwxyz";
         public static void ToConsole(double[,] matrix)
         {
             int x = matrix.GetLength(1);
@@ -28,10 +29,19 @@ namespace GaussElimination
             }
             Console.WriteLine();
         }
+
+        public static void ToConsole(double[] matrix)
+        {
+            
+            int r = matrix.GetLength(0);
+            for (int i = 0; i < r; i++)
+            {
+                Console.Write($"{abc[i].ToString().ToUpper()}= {matrix[i]:N3}\t");
+            }
+        }
+
         public static void ShowResult(double[,] matrix)
         {
-            string abc = "abcdefghijklmnopqrstuvwxyz";
-
             int x = matrix.GetLength(1);
             int y = matrix.GetLength(0);
 

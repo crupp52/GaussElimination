@@ -99,46 +99,75 @@ namespace GaussElimination
 
         public void Process()
         {
+            //Console.WriteLine("Kiinduló állapot:");
+            //DisplayTools.ToConsole(Matrix);
+            //int n = Matrix.GetLength(1);
+            //int m = Matrix.GetLength(0);
+            //for (int i = 0; i < m; i++)
+            //{
+            //    if (!OnlyZerosFromRow(i, i))
+            //    {
+            //        if (Matrix[i, i] == 0)
+            //        {
+            //            ChangeRows(i, SerachNonZeroInColumn(i));
+            //        }
+
+            //        for (int j = i; j < m; j++)
+            //        {
+            //            if (Matrix[j,i] != 0)
+            //            {
+            //                double t = Matrix[j, i];
+            //                for (int k = i; k < n; k++)
+            //                {
+            //                    Matrix[j, k] = Matrix[j, k] / t;
+            //                    if (j >= i + 1)
+            //                    {
+            //                        Matrix[j, k] = Matrix[j, k] - Matrix[i, k];
+            //                    }
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
+            //Console.WriteLine("Átalakítás utáni állapot:");
+            //DisplayTools.ToConsole(Matrix);
+
             Console.WriteLine("Kiinduló állapot:");
             DisplayTools.ToConsole(Matrix);
             int n = Matrix.GetLength(1);
             int m = Matrix.GetLength(0);
-            for (int i = 0; i < m; i++)
+            for (int i = 0; i < m - 1; i++)
             {
-                if (!OnlyZerosFromRow(i, i))
+                for (int j = i + 1; j < m; j++)
                 {
-                    if (Matrix[i, i] == 0)
+                    double t = Matrix[j, i] / Matrix[i, i];
+                    for (int k = 0; k < n; k++)
                     {
-                        ChangeRows(i, SerachNonZeroInColumn(i));
+                        Matrix[j, k] -= Matrix[i, k] * t;
                     }
-                    
-                    for (int j = i; j < m; j++)
-                    {
-                        if (Matrix[j,i] != 0)
-                        {
-                            double t = Matrix[j, i];
-                            for (int k = i; k < n; k++)
-                            {
-                                Matrix[j, k] = Matrix[j, k] / t;
-                                if (j >= i + 1)
-                                {
-                                    Matrix[j, k] = Matrix[j, k] - Matrix[i, k];
-                                }
-                            }
-                        }
-                    }
+                    Matrix[j, i] = 0;
                 }
             }
             Console.WriteLine("Átalakítás utáni állapot:");
             DisplayTools.ToConsole(Matrix);
         }
 
-        double[,] CalculateResult()
+        public double[] CalculateResult()
         {
-            double[,] res = new double[Matrix.GetLength(0), Matrix.GetLength(1)];
-            
+            double[] res = new double[Matrix.GetLength(0)];
 
-            
+            int c = Matrix.GetLength(1);
+            int r = Matrix.GetLength(0);
+
+            for (int i = r - 1; i >= 0; i--)
+            {
+                res[i] = Matrix[i, r];
+                for (int j = i + 1; j < r; j++)
+                {
+                    res[i] -= Matrix[i, j] * res[j];
+                }
+                res[i] /= Matrix[i, i];
+            }
 
             return res;
         }
