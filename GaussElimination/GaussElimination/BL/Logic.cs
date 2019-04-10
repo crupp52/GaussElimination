@@ -141,7 +141,7 @@ namespace GaussElimination
                 for (int j = i + 1; j < m; j++)
                 {
                     double t = Matrix[j, i] / Matrix[i, i];
-                    for (int k = 0; k < n; k++)
+                    for (int k = 0; k <= m; k++)
                     {
                         Matrix[j, k] -= Matrix[i, k] * t;
                     }
