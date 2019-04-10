@@ -44,7 +44,7 @@ namespace GaussElimination
             //    {2, -8, 8, -2},
             //    {-6, 3, -15, 9}
             //};
-
+            
             Logic l = new Logic(matrix);
             l.Process();
             DisplayTools.ShowResult(matrix);
