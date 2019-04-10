@@ -51,9 +51,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GaussEliminationDLL\GaussEliminationDLL.csproj">
+    <ProjectReference Include="..\GaussEliminationDLL\GaussianEliminationDLL.csproj">
       <Project>{96166f1c-98e8-416b-87bd-af0f72bfc729}</Project>
-      <Name>GaussEliminationDLL</Name>
+      <Name>GaussianEliminationDLL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
