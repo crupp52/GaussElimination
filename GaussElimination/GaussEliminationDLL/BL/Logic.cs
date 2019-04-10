@@ -17,8 +17,6 @@ namespace GaussElimination
 
         public void Process()
         {
-            Console.WriteLine("Kiinduló állapot:");
-            DisplayTools.ToConsole(Matrix);
             int n = Matrix.GetLength(1);
             int m = Matrix.GetLength(0);
             for (int i = 0; i < m - 1; i++)
@@ -33,8 +31,6 @@ namespace GaussElimination
                     Matrix[j, i] = 0;
                 }
             }
-            Console.WriteLine("Átalakítás utáni állapot:");
-            DisplayTools.ToConsole(Matrix);
         }
 
         public double[] CalculateResult()

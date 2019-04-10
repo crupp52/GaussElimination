@@ -44,10 +44,12 @@ namespace GaussElimination
             //    {2, -8, 8, -2},
             //    {-6, 3, -15, 9}
             //};
-            
+
+            Console.WriteLine("Kiinduló állapot: ");
+            DisplayTools.ToConsole(matrix);
             Logic l = new Logic(matrix);
             l.Process();
-            DisplayTools.ShowResult(matrix);
+            Console.WriteLine("Eredmény: ");
             DisplayTools.ToConsole(l.CalculateResult());
 
             Console.ReadKey();
