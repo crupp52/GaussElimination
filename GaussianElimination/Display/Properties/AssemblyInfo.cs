@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GaussEliminationDLL")]
+[assembly: AssemblyTitle("Display")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("GaussEliminationDLL")]
+[assembly: AssemblyProduct("Display")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("96166f1c-98e8-416b-87bd-af0f72bfc729")]
+[assembly: Guid("f08a3dfa-cb01-4e76-a851-1505fa672279")]
 
 // Version information for an assembly consists of the following four values:
 //

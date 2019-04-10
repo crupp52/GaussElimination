@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BFF0AAFF-0D55-49F7-8DDC-FBA2F37DAD9A}</ProjectGuid>
+    <ProjectGuid>{F08A3DFA-CB01-4E76-A851-1505FA672279}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>GaussElimination</RootNamespace>
-    <AssemblyName>GaussElimination</AssemblyName>
+    <RootNamespace>Display</RootNamespace>
+    <AssemblyName>Display</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -51,9 +51,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GaussEliminationDLL\GaussianEliminationDLL.csproj">
-      <Project>{96166f1c-98e8-416b-87bd-af0f72bfc729}</Project>
-      <Name>GaussianEliminationDLL</Name>
+    <ProjectReference Include="..\GaussianElimination\GaussianElimination.csproj">
+      <Project>{86f31e8c-aba0-4a20-82a3-d1969f134511}</Project>
+      <Name>GaussianElimination</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
